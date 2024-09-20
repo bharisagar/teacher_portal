@@ -20,7 +20,10 @@ gem "jbuilder"
 # gem "redis", ">= 4.0.1"
 gem "psych"
 
-
+# paginate
+gem "kaminari"
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

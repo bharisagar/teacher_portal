@@ -1,8 +1,14 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:edit, :update, :destroy]
+  before_action :set_student, only: [ :edit, :update, :destroy ]
 
   def index
-    @students = Student.where(teacher_id: session[:teacher_id])
+    if params[:query].present?
+      # Search students based on the query and ensure they belong to the logged-in teacher
+      @students = Student.search(params[:query]).records.where(teacher_id: session[:teacher_id])
+    else
+      # Fetch all students for the logged-in teacher
+      @students = Student.where(teacher_id: session[:teacher_id])
+    end
   end
 
   def new
@@ -15,13 +21,13 @@ class StudentsController < ApplicationController
     if existing_student
       # Update the existing student's marks
       existing_student.update(marks: existing_student.marks + student_params[:marks].to_i)
-      redirect_to students_path, notice: 'Marks updated for existing student.'
+      redirect_to students_path, notice: "Marks updated for existing student."
     else
       @student = Student.new(student_params)
       @student.teacher_id = session[:teacher_id] # Associate with the teacher
 
       if @student.save
-        redirect_to students_path, notice: 'Student added successfully.'
+        redirect_to students_path, notice: "Student added successfully."
       else
         render :new
       end
@@ -34,7 +40,7 @@ class StudentsController < ApplicationController
 
   def update
     if @student.update(student_params)
-      redirect_to students_path, notice: 'Student updated successfully.'
+      redirect_to students_path, notice: "Student updated successfully."
     else
       render :index
     end
@@ -42,11 +48,11 @@ class StudentsController < ApplicationController
 
   def destroy
     if @student.destroy
-        redirect_to students_path , notice: 'Student records Deleted.'
-      else
-        flash[:alert] = 'Failed to delete Student records.'
-        redirect_to students_path 
-      end
+        redirect_to students_path, notice: "Student records Deleted."
+    else
+        flash[:alert] = "Failed to delete Student records."
+        redirect_to students_path
+    end
   end
 
   private

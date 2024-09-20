@@ -198,80 +198,74 @@ th {
 
 /* edit student */
 /* General Styles */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
-}
-
-.edit-student-container {
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    max-width: 500px; /* Set a maximum width for the form */
-    margin: auto; /* Center the container */
-}
-
-h1 {
-    font-size: 28px;
-    color: #333;
-    margin-bottom: 30px; /* Spacing below the title */
-}
-
-.form-group {
+.student-list-container .search-container {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.form-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: 500;
+.search-label {
+    font-size: 14px;
+    margin-right: 8px;
 }
 
-.form-input {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+.small-search-field {
+    padding: 5px 10px;
+    font-size: 14px;
+    width: 200px;  /* Normal small size */
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.form-input:focus {
-    border-color: #007bff; /* Focus color */
-    outline: none;
+.tiny-submit-btn {
+    /* padding: 3px 8px;  Very small padding */
+    font-size: 12px;  /* Smaller font size */
+    background-color: #e55a47;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tiny-submit-btn:hover {
+    background-color: #d94b39;
 }
 
 .btn {
-    background-color: #ff6f61; 
-    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #e55a47;
+    color: white;
     border: none;
-    border-radius: 6px;
-    padding: 12px 20px;
     cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s;
-    width: 100%;
 }
 
-.btn:hover {
-    background-color: #ff6f61; 
+.logout-btn {
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    color: #007bff; /* Blue color */
-    text-decoration: none;
-    font-size: 16px;
+.add-student-btn {
+    margin-bottom: 20px;
 }
 
-.back-link:hover {
-    text-decoration: underline;
+.add-student-btn:hover {
+    background-color: #d94b39;
 }
+
+.action-btn {
+    background-color: #e55a47;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.action-btn:hover {
+    background-color: #d94b39;
+}
+
 
 /* add new student */
 /* General Styles */
@@ -349,4 +343,4 @@ h1 {
 .back-link:hover {
     text-decoration: underline;
 }
-
+/* elasticsearch */
