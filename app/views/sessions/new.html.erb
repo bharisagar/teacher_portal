@@ -1,0 +1,20 @@
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome to Teacher Portal</h2>
+
+        <%= flash[:alert].present? ? content_tag(:div, flash[:alert], class: 'alert alert-danger') : '' %>
+
+        <%= form_with url: login_path, local: true do |form| %>
+            <div class="form-group">
+                <%= form.label :phone_number, class: "form-label" %>
+                <%= form.text_field :phone_number, class: "form-input", placeholder: "Enter your mobile number", required: true,  maxlength: 10  %>
+            </div>
+            <div class="form-group">
+                <%= form.label :otp, class: "form-label" %>
+                <%= form.text_field :otp, class: "form-input", placeholder: "Enter OTP", required: true %>
+            </div>
+            <%= form.submit 'Login', class: 'btn' %>
+            <a href="#" class="link">Resend OTP</a>
+        <% end %>
+    </div>
+</div>
