@@ -5,6 +5,10 @@ Setup Instructions:
 git clone <repository-url>
 cd <repository-directory>
 
+2. Install Elastic Search (mandatory)
+
+3. Start elasticsearch
+
 2. rake db:setup
 
 3. bundle exec rails assets:precompile
@@ -22,11 +26,13 @@ Open Rails Console
 2. Create a Teacher Run the following command to create a teacher with a phone number and an OTP:
 
 teachers = Teacher.create(phone_number: "9538382622", otp: "123456")
+
 3. teachers.save
 
 4. Add a Student After creating the teacher, you can add a student associated with that teacher:
 
 teachers.students.create(name: "Sagar", subject: "Science", marks: 85)
+
 This will create a teacher and a student record in the database, allowing you to test the functionality of the application.
 ---------------------------------------------------------------------
 
@@ -37,6 +43,7 @@ PostgreSQL: For database management
 Node.js: v18.3.0
 HTML & CSS: Basic styling for views
 JavaScript: Vanilla JavaScript for front-end logic
+Elasticsearch
 
 In the Teacher Portal, we utilize phone numbers and One-Time Passwords (OTPs) for authentication instead of traditional email and password combinations for several reasons:
 
